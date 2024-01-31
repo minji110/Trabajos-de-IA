@@ -137,8 +137,6 @@ void arbol::eliminar(int dato, nodo* Nodo, nodo* padre) {
 				padreaux->der = NULL;
 
 			delete(aux);
-
-			delete(aux);
 		}
 
 	}
