@@ -118,7 +118,7 @@ void arbol::eliminar(int dato, nodo* Nodo, nodo* padre) {
 		delete(Nodo);
 
 	}
-	else if (Nodo->izq != NULL && Nodo->der == NULL) {
+	else if (Nodo->izq != NULL && Nodo->der != NULL) {
 		nodo* aux = Nodo->der;
 		nodo* padreaux = Nodo;
 
@@ -129,7 +129,14 @@ void arbol::eliminar(int dato, nodo* Nodo, nodo* padre) {
 
 		Nodo->dato = aux->dato;
 		if (aux->der) {
-			padre->izq = aux->der;
+			padreaux->izq = aux->der;
+
+			if (padreaux->izq == aux)
+				padreaux->izq = NULL;
+			else
+				padreaux->der = NULL;
+
+			delete(aux);
 
 			delete(aux);
 		}

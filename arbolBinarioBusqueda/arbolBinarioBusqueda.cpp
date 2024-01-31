@@ -50,9 +50,11 @@ int main()
                 if (Nodo == NULL)
                     cout << "Ese nodo no se encuentra en el arbol" << endl;
                 else
+                {
                     cout << "Nodo " << dato << " encontrado" << endl;
-                cout << "Hijo izquierdo:" << Nodo->GetDatoIzq() << endl;
-                cout << "Hijo derecho:" << Nodo->GetDatoDer() << endl;
+                    cout << "Hijo izquierdo:" << Nodo->GetDatoIzq() << endl;
+                    cout << "Hijo derecho:" << Nodo->GetDatoDer() << endl;
+                }
             }
 
             break;
