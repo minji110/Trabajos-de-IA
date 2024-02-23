@@ -114,10 +114,10 @@ class Puzzle {
         System.out.println("\nStates Explored: " + this.numExplored);
         System.out.println("Solution:");
         //comente la linea para que pueda estar todo en la pantalla
-        /*for (Node node : this.solution) {
+        for (Node node : this.solution) {
             System.out.println("action: " + node.action);
             printState(node.state);
-        }*/
+        }
         System.out.println("Goal Reached!!");
     }
 
@@ -208,13 +208,14 @@ public class Main {
         Puzzle p = new Puzzle(start, startRow, startCol, goal, goalRow, goalCol);
         
         //este ya jala, pero tarda un monton ;_;
-        /*long startTimeDFS = System.currentTimeMillis();
+        long startTimeDFS = System.currentTimeMillis();
         System.err.println("\nDFS");
         p.solveDFS();
         long endTimeDFS = System.currentTimeMillis();
         p.printSolution();
-        System.out.println("Time taken by DFS: " + (endTimeDFS - startTimeDFS) + "ms");*/
+        System.out.println("Time taken by DFS: " + (endTimeDFS - startTimeDFS) + "ms");
 
+        
         //funciona rapido
         long startTimeBFS = System.currentTimeMillis();
         p.solveBFS();
