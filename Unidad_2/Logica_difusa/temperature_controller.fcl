@@ -34,4 +34,13 @@ RULEBLOCK control
     RULE 1 : IF temperatura IS baja THEN tiempo_encendido IS corto;
     RULE 2 : IF temperatura IS media THEN tiempo_encendido IS medio;
     RULE 3 : IF temperatura IS alta THEN tiempo_encendido IS largo;
+    RULE 4 : IF temperatura IS baja AND tiempo_encendido IS corto THEN tiempo_encendido IS corto;
+    RULE 5 : IF temperatura IS baja AND tiempo_encendido IS medio THEN tiempo_encendido IS corto;
+    RULE 6 : IF temperatura IS baja AND tiempo_encendido IS largo THEN tiempo_encendido IS corto;
+    RULE 7 : IF temperatura IS media AND tiempo_encendido IS corto THEN tiempo_encendido IS corto;
+    RULE 8 : IF temperatura IS media AND tiempo_encendido IS medio THEN tiempo_encendido IS medio;
+    RULE 9 : IF temperatura IS media AND tiempo_encendido IS largo THEN tiempo_encendido IS largo;
+    RULE 10 : IF temperatura IS alta AND tiempo_encendido IS corto THEN tiempo_encendido IS corto;
+    RULE 11 : IF temperatura IS alta AND tiempo_encendido IS medio THEN tiempo_encendido IS medio;
+    RULE 12 : IF temperatura IS alta AND tiempo_encendido IS largo THEN tiempo_encendido IS largo;
 END_RULEBLOCK
