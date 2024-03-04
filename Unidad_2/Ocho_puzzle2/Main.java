@@ -1,4 +1,4 @@
-package Ocho_puzzle2;
+package Unidad_2.Ocho_puzzle2;
 
 import java.util.*;
 
