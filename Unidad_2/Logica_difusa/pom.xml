@@ -1,0 +1,5 @@
+<dependency>
+    <groupId>net.sourceforge.jFuzzyLogic</groupId>
+    <artifactId>jFuzzyLogic</artifactId>
+    <version>1.0.7</version>
+</dependency>
