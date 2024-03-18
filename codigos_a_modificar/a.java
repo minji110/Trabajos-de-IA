@@ -1,6 +1,6 @@
-package codigos_a_modificar;
+package Ocho_puzzle;
 import java.util.*;
-//funciona ANCHURA
+
 public class a {
     
     static final int N = 3; // 3x3 puzzle
@@ -8,9 +8,11 @@ public class a {
     
     static class State {
         String board;
+        int depth; // Depth of the current state
         
-        State(String board) {
+        State(String board, int depth) {
             this.board = board;
+            this.depth = depth;
         }
         
         boolean isGoal() {
@@ -35,25 +37,23 @@ public class a {
                     char[] newBoard = board.toCharArray();
                     newBoard[zeroIndex] = newBoard[newPos];
                     newBoard[newPos] = '0';
-                    neighbors.add(new State(String.valueOf(newBoard)));
+                    neighbors.add(new State(String.valueOf(newBoard), depth + 1));
                 }
             }
             return neighbors;
         }
     }
     
-    static List<State> solveBFS(String initial) {
-        Queue<State> queue = new LinkedList<>();
+    static List<State> solveDFS(String initial, int depthLimit) {
+        Stack<State> stack = new Stack<>();
         Map<String, State> parent = new HashMap<>();
-        Set<String> visited = new HashSet<>(); // Keep track of visited states
         
-        State start = new State(initial);
-        queue.add(start);
-        visited.add(initial);
+        State start = new State(initial, 0);
+        stack.push(start);
         parent.put(initial, null);
         
-        while (!queue.isEmpty()) {
-            State current = queue.poll();
+        while (!stack.isEmpty()) {
+            State current = stack.pop();
             if (current.isGoal()) {
                 List<State> path = new ArrayList<>();
                 while (current != null) {
@@ -63,11 +63,14 @@ public class a {
                 Collections.reverse(path);
                 return path;
             }
+            // Check depth limit
+            if (current.depth >= depthLimit) {
+                continue; // Skip this state if it exceeds depth limit
+            }
             
             for (State neighbor : current.getNeighbors()) {
-                if (!visited.contains(neighbor.board)) {
-                    queue.add(neighbor);
-                    visited.add(neighbor.board);
+                if (!parent.containsKey(neighbor.board)) {
+                    stack.push(neighbor);
                     parent.put(neighbor.board, current);
                 }
             }
@@ -77,8 +80,8 @@ public class a {
     }
     
     public static void main(String[] args) {
-        String initial = "123045678"; // Initial state
-        List<State> solution = solveBFS(initial);
+        String initial = "724506831"; // Initial state
+        List<State> solution = solveDFS(initial, 50); // Limit depth to 50
         if (solution != null) {
             for (State state : solution) {
                 for (int i = 0; i < N; i++) {
@@ -90,7 +93,8 @@ public class a {
                 System.out.println();
             }
         } else {
-            System.out.println("No solution exists!");
+            System.out.println("No solution exists within the depth limit!");
         }
     }
 }
+
