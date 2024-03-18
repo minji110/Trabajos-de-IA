@@ -1,5 +1,5 @@
 package Unidad_2.Ocho_puzzle2;
-
+//aqui esta todo
 import java.util.*;
 
 class Node {
