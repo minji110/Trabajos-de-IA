@@ -19,11 +19,11 @@ def cargar_csv(archivo):
     return datos
 
 # Cargar datos del primer archivo CSV
-archivo1 = "C:\Users\airam\Downloads\Línea recta a Bucharest.csv"
+archivo1 = "C:/Users/airam/Downloads/Línea recta a Bucharest.csv"
 datos_ciudades = cargar_csv(archivo1)
 
 # Cargar datos del segundo archivo CSV
-archivo2 = "C:\Users\airam\Downloads\distancias entre ciudades.csv"
+archivo2 = "C:/Users/airam/Downloads/distancias entre ciudades.csv"
 datos_distancias = cargar_csv(archivo2)
 
 def obtener_distancia_recta_a_bucarest(ciudad):
